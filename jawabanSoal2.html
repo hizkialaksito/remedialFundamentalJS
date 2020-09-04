@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form>
+        <p>Ukuran: <input type="number" id="ukuran"></p>
+    </form>
+    <button onclick="segitigaGanjil()">Lihat</button>
+    <p id="output1"></p>
+    <br>
+    <form>
+        <p>Tambah jumlah angka pada baris ke: <input type="number" id="baris"></p>
+    </form>
+    <button onclick="segitigaGanjilTambah()">Lihat</button>
+    <p id="output2"></p>
+
+</body>
+<script>
+
+    var segitigaGanjil=()=>{ //Masih belum bisa function-nya
+        var ukuranSegitiga=document.getElementById('ukuran').value
+        var output=''
+            for (i=0; i<ukuranSegitiga; i++){
+                for (j=0; j<(ukuranSegitiga-i); j++){ // Cetak spasi
+                    output+='&nbsp;'
+                }
+                for (k=0; k<ukuranSegitiga; k++){ // Cetak angka ganjil
+                    output+=k
+                    if (i==k){
+                        break
+                    }
+                }
+                output+='<br>'
+            }
+            document.getElementById('output1').innerHTML=output
+    }
+
+    var segitigaGanjilTambah=()=>{
+        var n = document.getElementById('baris').value
+        var barisKeBerapa = n*(n-1)+1
+        var barisArr = [barisKeBerapa]
+        var totalJumlah = 0
+        for (i=0; i<n-1; i++){
+            barisArr.push(barisArr[i]+2)
+        }
+        for (i=0; i<barisArr.length; i++){
+            totalJumlah += barisArr[i]
+        }
+        document.getElementById('output2').innerHTML=totalJumlah
+    }
+
+</script>
+</html>
